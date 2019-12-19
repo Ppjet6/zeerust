@@ -22,8 +22,8 @@ pub struct Z80 {
 
     is_halted: bool,
 
-    input_devices: HashMap<u8, Box<io::InputDevice>>,
-    output_devices: HashMap<u8, Box<io::OutputDevice>>,
+    input_devices: HashMap<u8, Box<dyn io::InputDevice>>,
+    output_devices: HashMap<u8, Box<dyn io::OutputDevice>>,
 }
 
 impl Default for Z80 {

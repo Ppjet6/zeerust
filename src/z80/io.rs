@@ -26,7 +26,7 @@ impl Z80 {
     /// z80.install_input(0, Box::new(inp.clone()));
     ///```
     /// This will then be usable with `IN (0), <register>`.
-    pub fn install_input(&mut self, index: u8, device: Box<InputDevice>) {
+    pub fn install_input(&mut self, index: u8, device: Box<dyn InputDevice>) {
         self.input_devices.insert(index, device);
     }
 
@@ -39,7 +39,7 @@ impl Z80 {
     /// z80.install_output(0, Box::new(out.clone()));
     ///```
     /// This will then be usable with `OUT (0), <register>`.
-    pub fn install_output(&mut self, index: u8, device: Box<OutputDevice>) {
+    pub fn install_output(&mut self, index: u8, device: Box<dyn OutputDevice>) {
         self.output_devices.insert(index, device);
     }
 }
